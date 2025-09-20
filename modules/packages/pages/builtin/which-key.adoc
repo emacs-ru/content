@@ -1,0 +1,14 @@
+[#which-key]
+= which-key
+
+Пакет `which-key` не всегда был частью {emacs}.
+Если вы используете старую версию редактора, пакет нужно будет установить из архива.
+
+.Установка и настройка
+[source,emacs-lisp]
+----
+(use-package which-key
+  :ensure t
+  :pin "gnu"
+  :config (which-key-mode t))
+----

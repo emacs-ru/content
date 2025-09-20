@@ -1,0 +1,111 @@
+[#installation]
+= Установка
+
+Есть несколько способов установки GNU Emacs.
+Рекомендуется использовать тот, который нативно поддерживается вашей операционной системой.
+
+
+[#installation-linux]
+== Linux
+
+GNU Emacs входит в состав репозиториев подавляющего большинства дистрибутивов Linux.
+Хотя вы можете собрать редактор из исходного кода, рекомендуемым способом установки является использование системного менеджера пакетов.
+
+[#installation-ubuntu]
+=== Ubuntu Linux
+
+. Обновите список доступных пакетов:
++
+[source, bash]
+----
+sudo apt-get update
+----
+. Установите пакет `emacs`:
++
+[source, bash]
+----
+sudo apt-get install emacs --yes
+----
+
+
+[#installation-debian]
+=== Debian Linux
+
+В стандартных репозиториях Debian Bookworm присутствует версия GNU Emacs 27.1, однако, из репозитория Backports можно установить версию поновееfootnote:[29.4 на момент написания этой статьи.]:
+
+. В каталоге `/etc/apt/sources.list.d/` создайте файл `backports.list`:
++
+[source, debsources]
+----
+deb http://deb.debian.org/debian bookworm-backports main non-free contrib
+
+----
+. В каталоге `/etc/apt/preferences.d/` создайте файл `backports-emacs`:
++
+[source, ini]
+----
+# GNU Emacs
+Package: emacs-gtk emacs-nox emacs emacs-bin-common emacs-common emacs-el
+Pin: release n=bookworm-backports
+Pin-Priority: 600
+
+----
+. Обновите кеш APT:
++
+[source, bash]
+----
+sudo apt-get update
+----
+. Установите пакет `emacs`:
++
+[source, bash]
+----
+sudo apt-get install emacs --yes
+----
+
+
+[#installation-windows]
+== Microsoft Windows
+
+GNU Emacs для Microsoft Windows можно загрузить напрямую с FTP-сервера GNU:
+
+. Перейдите по https://ftp.gnu.org/gnu/emacs/windows/[ссылке].
+. Перейдите в каталог с актуальной версией GNU Emacs.
+. Загрузите ZIP-архив или EXE-файл с установщиком.
++
+--
+Рассмотрим загрузку на примере следующих файлов:
+
+* `emacs-29.4.zip` -- наиболее полный архив, включающий также версии утилит и библиотек, которых по умолчанию нет в Microsoft Windows.
+Рекомендуется к использованию.
+* `emacs-29.4-nodeps.zip` -- архив без зависимостей.
+Недостающие библиотеки и утилиты нужно будет загрузить и установить вручную.
+* `emacs-29.4-installer.exe` -- графический установщик.
+Создаст ярлык для запуска GNU Emacs автоматически.
+--
+. Распакуйте загруженный архив или запустите установщик и следуйте его указаниям.
+. В окружении текущего пользователя создайте переменную `HOME`, в значении которой укажите путь к каталогу, который GNU Emacs должен считать домашним.
+В противном случае домашним будет считаться каталог, в котором хранится профиль пользователя, то есть примерно такой:
++
+[source, text]
+----
+C:\Users\dunaevsky\AppData\Roaming\
+----
+. Используйте для запуска GNU Emacs файл `runemacs.exe`, а не `emacs.exe`.
++
+[NOTE]
+====
+Файл `runemacs.exe` выполняет подготовку окружения к корректному запуску GNU Emacs.
+Запуск напрямую с помощью файла `emacs.exe` приводит к трудноуловимым ошибкам в работе редактора.
+====
+
+
+[#installation-free-bsd]
+== FreeBSD
+
+Для установки GNU Emacs из скомпилированных пакетов выполните команду от имени пользователя `root`:
+
+[source, bash]
+----
+pkg add emacs
+----

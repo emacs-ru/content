@@ -1,0 +1,3 @@
+= Содержимое сайта emacs.dunaevsky-ms.ru
+
+Содержимое собирается с помощью https://antora.org[Antora].

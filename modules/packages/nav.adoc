@@ -1,0 +1,4 @@
+* xref:packages:index.adoc[]
+** xref:packages:builtin/index.adoc[]
+*** xref:packages:builtin/rst.adoc[]
+*** xref:packages:builtin/which-key.adoc[]

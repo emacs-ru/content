@@ -1,0 +1,7 @@
+[#packages-builtin]
+= Встроенные пакеты
+
+В этом разделе представлены описания встроенных пакетов.
+
+* xref:packages:builtin/rst.adoc#rst[]
+* xref:packages:builtin/which-key.adoc#which-key[]

@@ -1,0 +1,7 @@
+---
+name: emacs
+title: GNU Emacs по-русски
+version: ~
+nav:
+  - modules/ROOT/nav.adoc
+  - modules/packages/nav.adoc

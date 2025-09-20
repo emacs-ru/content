@@ -1,0 +1,78 @@
+[#customize]
+= Customize
+
+Существует два основных подхода к настройке {emacs}:
+
+* Самостоятельное написание кода в файле `init.el`.
+* Использование псевдографического интерфейса `customize`.
+
+Для запуска интерфейса `customize` выполните следующие действия:
+
+. Нажмите kbd:[Alt+x].
+. Введите команду `customize` и нажмите kbd:[Enter].
+В открывшемся _буфере_ вы увидите примерно такое:
++
+[source, text]
+----
+For help using this buffer, see [Easy Customization] in the [Emacs manual].
+
+[                                      ] [ Search ]
+
+Operate on all settings in this buffer:
+[ Revert... ] [ Apply ] [ Apply and Save ]
+
+
+Emacs group: Customization of the One True Editor.
+      [ State ]: visible group members are all at standard values.
+      See also [Manual].
+
+[Editing]        Basic text editing facilities.
+[Convenience]    Convenience features for faster editing.
+[Files]          Support for editing files.
+[Wp]             Support for editing text files. More
+[Text]           Support for editing text files.
+[Data]           Support for editing binary data files.
+[External]       Interfacing to external utilities.
+[Communication]  Communications, networking, and remote access to files.
+[Programming]    Support for programming in other languages.
+[Applications]   Applications written in Emacs.
+[Development]    Support for further development of Emacs.
+[Environment]    Fitting Emacs with its environment.
+[Faces]          Support for multiple fonts.
+[Help]           Support for Emacs help systems.
+[Multimedia]     Non-textual support, specifically images and sound.
+[Local]          Code local to your site.
+----
+
+Для поиска нужных настроек вы можете использовать поле рядом с кнопкой btn:[Search] или переходить по ссылкам (обрамлены квадратными скобками).
+
+Для изменения настроек следует использовать соответствующие элементы интерфейса.
+
+Для сохранения сделанных изменений:
+
+. Нажмите кнопку btn:[State].
+. Выберите вариант ответа:
+* `0 = Set for Current Session` -- сохранить только для активной сессии.
+При следующем запуске GNU Emacs значение будет сброшено.
+* `1 = Save for Future Sessions` -- сохранить новое значение на постоянной основе.
+В `init.el` будет добавлен код, обеспечивающий установку выбранного значения.
+* `2 = Undo Edits` -- отменить сделанные изменения.
+* `3 = Revert This Session's Customization` -- отменить правки, сделанные в этой сессии.
+* `4 = Erase Customization` -- из `init.el` будет удалён код настройки параметра.
+При следующем запуске GNU Emacs для настройки будет использоваться значение по умолчанию.
+* `5 = Add Comment` -- добавить комментарий к настройке.
+То же самое, что `1 = Save for Future Sessions`, только дополнительно к настройке будет добавлен указанный комментарий.
+* `6 = Show Saved Lisp Expression` -- показать код из `init.el`, выполняющий установку выбранного значения.
+
+[TIP]
+====
+В любой момент можно прервать настройку с помощью сочетания kbd:[Ctrl+g].
+====
+
+Таким образом, `customize` хорошо подходит для изучения списка доступных настроек, их тестирования и генерации фрагментов кода на языке Emacs Lisp, выполняющих присваивание тех или иных значений нужным параметрам.
+
+Для чего `customize` подходит плохо, так это для реализации чего-то более сложного, чем присваивание значений указанным параметрам.
+Например, нет никакой возможности проверить выполнение нужных условий и установить значение настроек в зависимости от результатов проверки.
+Также через `customize` не получится создать код, выполняющий создание каталогов, поиск файлов и многое другое.
+
+Далее предполагается, что `customize` *не будет использоваться*, и все настройки будут выполняться путём добавления в `init.el` кода на Emacs Lisp вручную.
