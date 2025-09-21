@@ -6,4 +6,6 @@
 ** xref:core/modes.adoc[]
 ** xref:core/store-settings.adoc[]
 ** xref:core/customize.adoc[]
+* xref:packages/index.adoc[]
+** xref:packages/arhives.adoc[]
 * xref:glossary.adoc[]
