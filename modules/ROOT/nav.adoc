@@ -8,4 +8,5 @@
 ** xref:core/customize.adoc[]
 * xref:packages/index.adoc[]
 ** xref:packages/archives.adoc[]
+** xref:packages/package.el.adoc[]
 * xref:glossary.adoc[]
